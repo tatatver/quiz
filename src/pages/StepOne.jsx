@@ -1,9 +1,22 @@
-import React from "react";
-import {Header} from "../components/Header";
+import React, { useEffect, useState } from "react";
+import { Header } from "../components/Header";
 import { AppButton } from "../components/AppButton";
 import { AppLable } from "../components/AppLable";
 
 const StepOne = () => {
+
+const[userAnswer, setUserAnswer] = useState("");
+const [isDisabled, setIsDisabled] = useState(true);
+
+useEffect(()=>{
+  if (userAnswer){
+    setIsDisabled(false);
+  }else{
+    setIsDisabled(true);
+  }
+}, [userAnswer]);
+
+
   return (
     <div className="container">
       <div className="wrapper">
@@ -23,10 +36,15 @@ const StepOne = () => {
             </div>
           </div>
           <div className="question">
-            <Header HeaderText={"1. Занимательный вопрос"}/>
-            <AppLable labelId={"answer"} labelPlaceholder={"Ваш ответ"} errorText={" Введите номер в правильном формате например"}/>
-            <AppButton btnText={"Далее"} isDisabled={true} btnType={"button"}/>
-           
+            <Header HeaderType="h2" HeaderText={"1. Занимательный вопрос"} />
+            <AppLable
+              labelId={"answer"}
+              labelPlaceholder={"Ваш ответ"}
+              errorText={" Введите номер в правильном формате например"}
+              lableValue={userAnswer}
+              lableChange={setUserAnswer}
+            />
+            <AppButton btnText={"Далее"} isDisabled={isDisabled} btnType={"button"} />
           </div>
         </div>
       </div>

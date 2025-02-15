@@ -128,6 +128,7 @@ button {
   color: white;
   padding: 22.5px 0;
   transition: 200ms;
+  margin-top: 20px;
 }
 button:disabled {
   background-color: #b8bcc5;
