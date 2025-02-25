@@ -1,17 +1,17 @@
 import React from "react";
 
-export const AnswerItem = ({AnswerId, AnswerText, AnswerValue, AnswerChange}) => {
+export const AnswerItem = ({id, AnswerText, AnswerValue, AnswerChange}) => {
   return (
     <li className="variant-wrapper">
       <input
         required
         type="radio"
         name="variant-1"
-        id={AnswerId}
+        id={id}
         value={AnswerValue}
         onChange={AnswerChange}
       />
-      <label htmlFor="variant-1">{AnswerText}</label>
+      <label htmlFor={id}>{AnswerText}</label>
     </li>
   );
 };
