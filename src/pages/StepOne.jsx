@@ -13,10 +13,10 @@ const StepOne = () => {
     const navigate = useNavigate();
 
     const handleClick = () => {
-      const storedAnswers = JSON.parse(localStorage.getItem("answer")) || {}; 
+      const userData = JSON.parse(localStorage.getItem("user")) || {}; 
       localStorage.setItem(
-        "answer",
-        JSON.stringify({ ...storedAnswers, answer: userAnswer }) // Используем userAnswer из state
+        "user",
+        JSON.stringify({ ...userData, answer: userAnswer }) // Используем userAnswer из state
       );
       navigate("/step-two");
     };
